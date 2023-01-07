@@ -1,11 +1,13 @@
 import uvicorn
 
-from fastapi import FastAPI
-from app.api.endpoints import router
+# Импортируем роутер.
+from app.api.meeting_room import router
 from app.core.config import settings
+from fastapi import FastAPI
 
-app = FastAPI(title=settings.app_title, description=settings.description)
+app = FastAPI(title=settings.app_title)
 
+# Подключаем роутер.
 app.include_router(router)
 
 
